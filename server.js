@@ -1,4 +1,4 @@
-const {addUser, getMeLong} = require('./cool-file')
+const {addUser, getAllUsers, getMeLong} = require('./cool-file')
 // server.js
 // where your node app starts
 var bodyParser = require('body-parser')
@@ -22,7 +22,10 @@ app.get('/', function(request, response) {
 app.post('/api/exercise/new-user', (req, res) => {
   console.log(req.body)
   addUser(req, res)
-  
+})
+
+app.get('/api/exercise/users', (req, res) => {
+  getAllUsers(req, res)
 })
 
 

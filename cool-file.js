@@ -3,11 +3,11 @@ const Schema = mongoose.Schema
 const ObjectId = Schema.Types.ObjectId
 
 mongoose.Promise = global.Promise
-mongoose.connect(process.env.URI)
+mongoose.connect(process.env.URI, {useNewUrlParser: true})
 
 const userSchema = new mongoose.Schema({
   name: {
-    type: Number,
+    type: String,
     required: [true, 'Need a name at least bro!']
   }
 })
@@ -37,10 +37,21 @@ const Exercise = mongoose.model('Exercise', exerciseSchema)
 
 
 let addUser = (req, res) => {
-  
+  let userObj = new User({
+    name: req.body.username
+  })
+  userObj.save()
+    .then(prod => res.json(prod))
+    .catch(err => console.error(err))
 }
 
 
+let getAllUsers = (req, res) => {
+  let bigJSON = User.find({})
+    then(e)
+}
+
 module.exports = {
-  addUser
+  addUser,
+  getAllUsers
 }
