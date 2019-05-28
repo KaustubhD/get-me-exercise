@@ -40,11 +40,11 @@ app.post("/api/exercise/add", (req, res) => {
 })
 
 app.get("/api/exercise/log/:id", (req, res) => {
-  console.log(req.query)
-  if(req.query == {})
+  // console.log(req.query)
+  // if(req.query == {})
     getAllExes(req, res)
-  else
-    getFilteredExes(req, res)
+  // else
+  //   getFilteredExes(req, res)
 })
 
 // app.get("/api/exercise/log/:id", (req, res) => {

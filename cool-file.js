@@ -116,13 +116,36 @@ let addExercise = async (req, res) => {
 
 let getAllExes = async (req, res) => {
   let obj = await Exercise.findOne({ _id: req.params.id })
-    .then(rec => res.json(rec))
+    .then(rec => rec)
     .catch(err => console.error(err))
+  
+  console.log('Rec is', obj)
+  if(req.query){
+    if(req.query.from)
+      obj.log = obj.log.filter(rec => new Date(rec.date) > new Date(req.query.from))
+    if(req.query.to)
+      obj.log = obj.log.filter(rec => new Date(rec.date) > new Date(req.query.to))
+    if(req.query.duration)
+      obj.log = obj.log.filter(rec => rec.duration == req.query.duration)
+  }
+  res.json(obj)
 }
 
 
 let getFilteredExes = async (req, res) => {
-  
+  let q = {_id: req.params.id}
+  if(req.query.from){
+    q.date = {$gte: req.query.from}
+  }
+  if(req.query.to){
+    q.date = {$lt: req.query.to}
+  }
+  if(req.query.duration){
+    q.duration = {$eq: req.query.duration}
+  }
+  Exercise.find(q)
+    .exec()
+    .then(rec => console.log())
 }
 
 module.exports = {
