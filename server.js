@@ -1,4 +1,10 @@
-const {addUser, getAllUsers, getMeLong} = require('./cool-file')
+const {
+  addUser,
+  getAllUsers,
+  addExercise,
+  getAllExes,
+  getFilteredExes
+} = require("./cool-file")
 // server.js
 // where your node app starts
 var bodyParser = require('body-parser')
@@ -24,15 +30,27 @@ app.post('/api/exercise/new-user', (req, res) => {
   addUser(req, res)
 })
 
-app.get('/api/exercise/users', (req, res) => {
+app.get("/api/exercise/users", (req, res) => {
   getAllUsers(req, res)
 })
 
-
-app.get('/api/shorturl/:num', (req, res) => {
-  console.log(req.params)
-  getMeLong(req, res)
+app.post("/api/exercise/add", (req, res) => {
+  console.log(req.body)
+  addExercise(req, res)
 })
+
+app.get("/api/exercise/log/:id", (req, res) => {
+  console.log(req.query)
+  if(req.query == {})
+    getAllExes(req, res)
+  else
+    getFilteredExes(req, res)
+})
+
+// app.get("/api/exercise/log/:id", (req, res) => {
+//   getAllExes(req, res)
+// })
+
 
 // listen for requests :)
 const listener = app.listen(process.env.PORT, function() {
