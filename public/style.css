@@ -19,18 +19,26 @@ h1 {
 .bold {
   font-weight: bold;
 }
-
+.block{
+  width: 100%;
+  max-width: unset;
+}
 p {
   max-width: 600px;
 }
 
 main{
   display: flex;
-  justify-content: stretch;
+  justify-content: flex-start;
   align-items: flex-start;
   flex-wrap: wrap;
 }
-
+main > p {
+  color: #7fb9f4;
+}
+main > p code{
+  color: #cc5c5c;
+}
 form {
   display: inline-block;
   margin-bottom: 25px;

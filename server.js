@@ -39,7 +39,7 @@ app.post("/api/exercise/add", (req, res) => {
   addExercise(req, res)
 })
 
-app.get("/api/exercise/log/:id", (req, res) => {
+app.get("/api/exercise/logs/:id", (req, res) => {
   // console.log(req.query)
   // if(req.query == {})
     getAllExes(req, res)

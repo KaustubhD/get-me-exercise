@@ -8,7 +8,7 @@ Click `Show` in the header to see your app live. Updates to your code will insta
 Find out more [about Glitch](https://glitch.com/about).
 
 
-Your Project
+Project
 ------------
 
 On the front-end,
@@ -24,4 +24,4 @@ On the back-end,
 Made by [Glitch](https://glitch.com/)
 -------------------
 
-\ ゜o゜)ノ
+Link -> [\ ゜o゜)ノ](https://get-me-exercise.glitch.me)
