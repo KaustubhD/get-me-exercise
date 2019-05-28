@@ -1,0 +1,28 @@
+{
+  "author": "Kaustubh",
+  "name": "get-me-exercise",
+  "version": "0.0.1",
+  "description": "A simple exercise tracking service",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.16.4",
+    "body-parser": "^1.19.0",
+    "mongodb": "^3.2.6",
+    "mongoose": "^5.5.10"
+  },
+  "engines": {
+    "node": "8.x"
+  },
+  "repository": {
+    "url": "https://glitch.com/edit/#!/hello-express"
+  },
+  "license": "MIT",
+  "keywords": [
+    "node",
+    "glitch",
+    "express"
+  ]
+}
