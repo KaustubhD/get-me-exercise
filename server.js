@@ -4,11 +4,11 @@ const {
   addExercise,
   getAllExes,
   getFilteredExes
-} = require("./cool-file")
+} = require("./controllers/ctrl")
 // server.js
 // where your node app starts
 var bodyParser = require('body-parser')
-
+require('mongoose').connect(process.env.URI, {useNewUrlParser: true})
 // init project
 const express = require('express');
 const app = express();
@@ -40,16 +40,8 @@ app.post("/api/exercise/add", (req, res) => {
 })
 
 app.get("/api/exercise/logs/:id", (req, res) => {
-  // console.log(req.query)
-  // if(req.query == {})
     getAllExes(req, res)
-  // else
-  //   getFilteredExes(req, res)
 })
-
-// app.get("/api/exercise/log/:id", (req, res) => {
-//   getAllExes(req, res)
-// })
 
 
 // listen for requests :)
