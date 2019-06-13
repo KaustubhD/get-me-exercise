@@ -1,0 +1,73 @@
+<!-- This is a static file -->
+<!-- served from your routes in server.js -->
+
+<!-- You might want to try something fancier: -->
+<!-- html/nunjucks docs: https://mozilla.github.io/nunjucks/ -->
+<!-- pug: https://pugjs.org/ -->
+<!-- haml: http://haml.info/ -->
+<!-- hbs(handlebars): http://handlebarsjs.com/ -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Track my workout!</title>
+    <meta name="description" content="Exercise tracking service">
+    <link id="favicon" rel="icon" href="https://glitch.com/edit/favicon-app.ico" type="image/x-icon">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- import the webpage's stylesheet -->
+    <link rel="stylesheet" href="/style.css">
+    
+    <!-- import the webpage's client-side javascript file -->
+    <script src="/client.js" defer></script>
+  </head>
+  <body>
+    <header>
+      <h1>
+        Exercise tracker
+      </h1>
+    </header>
+
+    <main>
+      
+      <form action="api/exercise/new-user" method="POST">
+        <p class="bold" style="margin-top: 0">Add a user</p>
+        <input name="username" type="text" maxlength="100" placeholder="Username" aria-labelledby="add-user">
+        <button type="submit" id="submit-user">Add User</button>
+      </form>
+      
+      
+      <form action="api/exercise/add" method="POST">
+        <p class="bold" style="margin-top: 0">Add an exercise</p>
+        <input name="user-id" type="text" maxlength="100" placeholder="User ID*" aria-labelledby="user-id" required>
+        <input name="exercise" type="text" maxlength="100" placeholder="Exercise* (description)" aria-labelledby="exercise" required>
+        <input name="duration" type="number" placeholder="Duration* (minutes)" aria-labelledby="duration-in-minutes" required>
+        <input name="date" type="date" placeholder="Starting date" aria-labelledby="date-from">
+        <button type="submit" id="submit-exercise">Add Exercise</button>
+      </form>
+      
+      <p class="block">
+        Get all usernames and Ids:<br /><code>/api/exercise/users</code>
+      </p>
+      <p class="block">
+        Get the logs of a user:<br /><code>/api/exercise/logs/&lt;userid&gt;</code>
+      </p>
+      <p class="block">
+        Get specific logs of a user:<br /><code>/api/exercise/logs/&lt;userid&gt;?from=&lt;start-date&gt;&to=&lt;end-date&gt;&duration=&lt;duration&gt;</code>
+      </p>
+      
+    </main>
+
+    <footer>
+      Made with 💙 and <a href="https://glitch.com">Glitch</a>!
+    </footer>
+
+    <!-- include the Glitch button to show what the webpage is about and
+          to make it easier for folks to view source and remix -->
+    <div class="glitchButton" style="position:fixed;top:20px;right:20px;"></div>
+    <script src="https://button.glitch.me/button.js"></script>
+
+  </body>
+</html>
